@@ -164,7 +164,7 @@ jobs:
         #despliegue en Kubernetes
         #kubectl apply -f ${compose}
         #desplioegue en swarm
-        #docker stack deploy -c ${compose} ${project}        
+        #docker stack deploy -c ${compose} ${project}     
         while true
           do \
             sleep 10
@@ -175,6 +175,7 @@ jobs:
             sleep 10
             kubectl logs service/hasher 2>& 1 | grep '== Sinatra .* has taken the stage on .* for development with backup from Thin' && break
           done
+        kubectl logs service/worker 
         while true
           do \
             sleep 10
