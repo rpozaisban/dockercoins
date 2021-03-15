@@ -20,7 +20,7 @@ jobs:
           do \
             docker network create ${app}
           done
-        docker run -d --name redis -network redis -v redis:/data redis
+        docker run -d --name redis --network redis -v redis:/data redis
         for app in hasher rng webui worker
           do \
             docker run -d --name ${app} --network ${app} rpozaisban/dockercoins:testing-${app}
