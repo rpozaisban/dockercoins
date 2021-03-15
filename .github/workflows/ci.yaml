@@ -179,17 +179,17 @@ jobs:
         while true
           do \
             sleep 10
-            kubectl logs service/logs rng 2>& 1 | grep 'Running on' && break
-          done
-        while true
-          do \
-            sleep 10
-            kubectl service/logs worker 2>& 1 | grep 'Coin foun' && break
+            kubectl logs service/worker 2>& 1 | grep 'Coin foun' && break
           done   
         while true
           do \
             sleep 10
-            kubectl logs service/logs redis 2>& 1 | grep 'Ready to accept connections' && break
+            kubectl logs service/rng 2>& 1 | grep 'Running on' && break
+          done
+        while true
+          do \
+            sleep 10
+            kubectl logs service/redis 2>& 1 | grep 'Ready to accept connections' && break
           done 
           
           
