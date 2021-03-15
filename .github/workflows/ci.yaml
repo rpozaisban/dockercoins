@@ -83,7 +83,7 @@ jobs:
         #despliegue en Kubernetes
         #kubectl apply -f ${compose}
         #desplioegue en swarm
-        docker stack deploy -c ${compose} ${project}
+        docker stack deploy -c ${compose} 
         while true
           do \
             sleep 10
