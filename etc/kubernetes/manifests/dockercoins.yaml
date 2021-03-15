@@ -3,6 +3,7 @@ kind: DaemonSet
 metadata: 
   name: rng
 spec:
+  replicas: 1
   selector: 
     matchLabels:
       app: rng
@@ -14,6 +15,7 @@ spec:
       containers: 
         -
           image: rpozaisban/dockercoins:latest-rng
+          name: rng
           imagePullPolicy: Always
           ports: 
             -
@@ -37,6 +39,7 @@ spec:
       containers: 
         -
           image: rpozaisban/dockercoins:latest-hasher
+          name: hasher
           imagePullPolicy: Always
           ports: 
             -
@@ -59,7 +62,8 @@ spec:
     spec: 
       containers: 
         -
-          image: redis
+          image: rpozaisban/dockercoins:latest-redis
+          name: redis
           imagePullPolicy: Always
           ports: 
             -
@@ -91,6 +95,7 @@ spec:
       containers: 
         -
           image: rpozaisban/dockercoins:latest-webui
+          name: webui
           imagePullPolicy: Always
           ports: 
             -
