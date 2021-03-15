@@ -57,7 +57,7 @@ jobs:
         while true
           do \
             sleep 10
-            docker logs worker 2>& 1 | grep 'units of work done, updating hash counter' && break
+            docker logs worker 2>& 1 | grep 'Coin foun' && break
           done
   swarm:
     runs-on: ubuntu-18.04
