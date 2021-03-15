@@ -118,7 +118,10 @@ jobs:
       run: |
         set -x
         #creo imagen image
-        docker build -t rpozaisban/dockercoins:testing .
+        for app in hasher rng webui worker
+          do \
+            docker build -t rpozaisban/dockercoins:testing-${app} ${app}
+          done   
         #install kubernetes en ubunto
         sudo apt-get update -y
         #sudo apt-get install -y docker.io
