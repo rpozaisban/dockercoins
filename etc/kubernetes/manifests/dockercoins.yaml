@@ -141,8 +141,8 @@ metadata:
 spec:
   ports:
     -
-      port: 6379
-      targetPort: 6379
+      port: 8080
+      targetPort: 8080
   selector:
     app: redis
 ---
