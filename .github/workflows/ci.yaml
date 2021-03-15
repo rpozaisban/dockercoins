@@ -54,7 +54,11 @@ jobs:
             sleep 10
             docker logs rng 2>& 1 | grep 'Running on' && break
           done
-        docker logs worker
+        while true
+          do \
+            sleep 10
+            docker logs worker 2>& 1 | grep 'units of work done, updating hash counter' && break
+          done
   swarm:
     runs-on: ubuntu-18.04
     steps:
