@@ -37,7 +37,7 @@ jobs:
         while true
           do \
             sleep 10
-            docker logs webui 2>& 1 | grep 'WEBUI running in port' && break
+            docker logs webui 2>& 1 | grep 'WEBUI running on port' && break
           done
         for app in hasher redis rng worker
           do \
