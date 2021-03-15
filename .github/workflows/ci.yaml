@@ -166,6 +166,7 @@ jobs:
         #kubectl apply -f ${compose}
         #desplioegue en swarm
         #docker stack deploy -c ${compose} ${project}
+        
         while true
           do \
             sleep 10
