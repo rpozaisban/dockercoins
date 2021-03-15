@@ -54,7 +54,6 @@ jobs:
             sleep 10
             docker logs rng 2>& 1 | grep 'Running on' && break
           done
-        docker logs worker
         while true
           do \
             sleep 10
@@ -105,7 +104,6 @@ jobs:
             sleep 10
             docker service logs ${project}_rng 2>& 1 | grep 'Running on' && break
           done
-        docker logs worker
         while true
           do \
             sleep 10
