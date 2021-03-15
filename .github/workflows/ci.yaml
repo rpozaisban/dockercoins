@@ -118,7 +118,7 @@ jobs:
       run: |
         set -x
         #creo imagen image
-        docker build -t rpozaisban/phpinfo-2:testing .
+        docker build -t rpozaisban/dockercoins:testing .
         #install kubernetes en ubunto
         sudo apt-get update -y
         #sudo apt-get install -y docker.io
@@ -152,7 +152,7 @@ jobs:
         master=$( kubectl get node | grep master | awk '{ print $1 }' ) 
         kubectl taint node ${master} node-role.kubernetes.io/master:NoSchedule-
         
-        project=phpinfo-2
+        project=dockercoins
         compose=etc/kubernetes/manifests/${project}.yaml
         #sustituyo latest x testing y despliego con compose
         sed -i /image:/s/latest/testing/ ${compose}
