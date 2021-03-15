@@ -4,6 +4,6 @@ COPY hasher.rb /
 ENTRYPOINT ["ruby"]
 CMD ["hasher.rb"]
 EXPOSE 8080
-HEALTHCHECK \
-  --interval=1s --timeout=2s --retries=3 --start-period=1s \
+#HEALTHCHECK \
+#  --interval=1s --timeout=2s --retries=3 --start-period=1s \
   
