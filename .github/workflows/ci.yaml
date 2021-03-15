@@ -108,8 +108,7 @@ jobs:
           do \
             sleep 10
             docker service logs ${project}_worker 2>& 1 | grep 'Coin foun' && break
-          done     
-          
+          done               
   kubernetes:
     runs-on: ubuntu-18.04
     steps:
