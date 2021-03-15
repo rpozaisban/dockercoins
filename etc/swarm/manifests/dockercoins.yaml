@@ -115,7 +115,7 @@ services:
     networks:
       - redis
       - webui
-  worker:  hasher:
+  worker:  
     deploy: 
       mode: replicated
       placement: 
