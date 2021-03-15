@@ -87,6 +87,7 @@ services:
       test: wget -q --spider localhost:8080
       timeout: 1s
     image: rpozaisban/dockercoins:latest-rng
+    networks:
       - rng
     # volums escribe en disco, p openshift
   webui:
