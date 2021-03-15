@@ -193,4 +193,5 @@ jobs:
             sleep 10
             kubectl logs service/worker 2>& 1 | grep 'Coin foun' && break
           done          
+          
                     done
