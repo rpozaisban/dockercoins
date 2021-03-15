@@ -161,21 +161,34 @@ jobs:
         sed -i /image:/s/latest/testing/ ${compose}
         sed -i /imagePullPolicy/s/Always/Never/ ${compose}
         #Despliegue en Openshift
-        #oc apply -f ${compose}
+        oc apply -f ${compose}
         #despliegue en Kubernetes
-        kubectl apply -f ${compose}
+        #kubectl apply -f ${compose}
         #desplioegue en swarm
         #docker stack deploy -c ${compose} ${project}
-        while true 
+        while true
           do \
             sleep 10
-            kubectl describe deploy
-            kubectl describe rs
-            kubectl describe po
-            kubectl get deploy | grep "${project}.*\([0-9]\)/\1" && break
+            kubectl logs deploy/${project}_webui 2>& 1 | grep 'WEBUI running on port' && break
           done
         while true
           do \
             sleep 10
-            kubectl logs deploy/${project} 2>& 1 | grep 'PHP .* Development Server .* started' && break 
+            kubectl logs deploy/${project}_hasher 2>& 1 | grep '== Sinatra .* has taken the stage on .* for development with backup from Thin' && break
+          done
+        while true
+          do \
+            sleep 10
+            kubectl logs deploy/logs ${project}_redis 2>& 1 | grep 'Ready to accept connections' && break
+          done
+        while true
+          do \
+            sleep 10
+            kubectl logs deploy/logs ${project}_rng 2>& 1 | grep 'Running on' && break
+          done
+        while true
+          do \
+            sleep 10
+            kubectl logs deploy/${project}_worker 2>& 1 | grep 'Coin foun' && break
+          done    
           done
