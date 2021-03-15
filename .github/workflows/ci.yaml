@@ -170,7 +170,6 @@ jobs:
         while true
           do \
             sleep 10
-#            kubectl logs ${project}_webui 2>& 1 | grep 'WEBUI running on port' && break
             kubectl logs webui 2>& 1 | grep 'WEBUI running on port' && break
           done
         while true
