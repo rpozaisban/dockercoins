@@ -51,7 +51,7 @@ services:
           cpus: "0.1"
           memory: 100M
     expose:
-      - 6379
+      - 8080
     healthcheck:
       interval: 10s
       retries: 3
@@ -67,7 +67,7 @@ services:
   rng:
     deploy: 
       #DaemonSet, es una app q se despliega 1vez por worker
-      mode: global
+      mode: replicated
       placement: 
         constraints: 
           - node.role == worker
