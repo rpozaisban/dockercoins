@@ -67,7 +67,7 @@ spec:
           imagePullPolicy: Always
           ports: 
             -
-              containerPort: 8080
+              containerPort: 6379
               protocol: TCP
           volumeMounts:
             -
@@ -141,7 +141,7 @@ metadata:
 spec:
   ports:
     -
-      port: 8080
+      port: 6379
       targetPort: 8080
   selector:
     app: redis
