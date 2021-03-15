@@ -39,10 +39,22 @@ jobs:
             sleep 10
             docker logs webui 2>& 1 | grep 'WEBUI running on port' && break
           done
-        for app in hasher redis rng worker
+        while true
           do \
-            docker logs ${app}
+            sleep 10
+            docker logs hasher 2>& 1 | grep '== Sinatra .* has taken the stage on .* for development with backup from Thin' && break
           done
+        while true
+          do \
+            sleep 10
+            docker logs redis 2>& 1 | grep 'Ready to accept connections' && break
+          done
+        while true
+          do \
+            sleep 10
+            docker logs rng 2>& 1 | grep 'Running on' && break
+          done
+        docker logs worker
   swarm:
     runs-on: ubuntu-18.04
     steps:
