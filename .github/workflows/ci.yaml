@@ -86,6 +86,7 @@ jobs:
             sleep 10
             docker service ls | grep "${project}.*\([0-9]\)/\1" && break
           done
+        docker logs worker
         while true
           do \
             sleep 10
