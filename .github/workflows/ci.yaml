@@ -166,31 +166,31 @@ jobs:
         #kubectl apply -f ${compose}
         #desplioegue en swarm
         #docker stack deploy -c ${compose} ${project}
-        kubectl logs ${project}_webui
-        kubectl logs rng
+        kubectl logs webui
         while true
           do \
             sleep 10
-            kubectl logs ${project}_webui 2>& 1 | grep 'WEBUI running on port' && break
+#            kubectl logs ${project}_webui 2>& 1 | grep 'WEBUI running on port' && break
+            kubectl logs webui 2>& 1 | grep 'WEBUI running on port' && break
           done
         while true
           do \
             sleep 10
-            kubectl logs ${project}_hasher 2>& 1 | grep '== Sinatra .* has taken the stage on .* for development with backup from Thin' && break
+            kubectl logs hasher 2>& 1 | grep '== Sinatra .* has taken the stage on .* for development with backup from Thin' && break
           done
         while true
           do \
             sleep 10
-            kubectl logs logs ${project}_redis 2>& 1 | grep 'Ready to accept connections' && break
+            kubectl logs logs redis 2>& 1 | grep 'Ready to accept connections' && break
           done
         while true
           do \
             sleep 10
-            kubectl logs logs ${project}_rng 2>& 1 | grep 'Running on' && break
+            kubectl logs logs rng 2>& 1 | grep 'Running on' && break
           done
         while true
           do \
             sleep 10
-            kubectl logs ${project}_worker 2>& 1 | grep 'Coin foun' && break
+            kubectl logs worker 2>& 1 | grep 'Coin foun' && break
           done    
           done
