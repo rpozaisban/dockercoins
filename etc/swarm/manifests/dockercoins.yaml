@@ -86,7 +86,7 @@ services:
       start_period: 30s
       test: wget -q --spider localhost:8080
       timeout: 1s
-    image: rpozaisban/dockercoins:latest-hasher
+    image: rpozaisban/dockercoins:latest-rng
       - rng
     # volums escribe en disco, p openshift
   webui:
