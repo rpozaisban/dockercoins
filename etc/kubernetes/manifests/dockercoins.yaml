@@ -119,6 +119,7 @@ spec:
       containers: 
         -
           image: rpozaisban/dockercoins:latest-worker
+          name: worker
           imagePullPolicy: Always
 ---
 apiVersion: v1
