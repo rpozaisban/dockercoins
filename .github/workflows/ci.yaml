@@ -166,7 +166,7 @@ jobs:
         #kubectl apply -f ${compose}
         #desplioegue en swarm
         #docker stack deploy -c ${compose} ${project}
-        kubectl logs webui
+        kubectl logs service/webui
         while true
           do \
             sleep 10
